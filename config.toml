@@ -57,12 +57,6 @@ staticDir = ["static", "../assets/others"]               # static directories
     url = "about"
     weight = 4
 
-  [[menu.main]]
-    identifier = "zh"
-    name = '<i class="fas fa-language fa-fw"></i>'
-    url = "https://hugo-loveit-zh.netlify.com"
-    weight = 5
-
 [params]
   version = "5.x"                                        # LoveIt theme version
   description = "LoveIt Theme Demo"                      # site description
@@ -77,7 +71,7 @@ staticDir = ["static", "../assets/others"]               # static directories
   socialShare = true                                     # whether to show social share links in post page
 
                                                       #### Footer CopyRight Info
-  since = 2018                                           # Site creation time
+  since = 2019                                           # Site creation time
   icp = ''                                               # ICP info only in China (HTML format is allowed)
   license= '<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a>'
                                                          # license info (HTML format is allowed)

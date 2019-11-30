@@ -1,21 +1,21 @@
 ---
-title: "Hello World"
+title: "How I improved my typing speed and how you can too!"
 date: 2019-11-25T23:18:05+05:30
 draft: true
+featured_image: "https://miro.medium.com/max/8690/0*xc-UnTMdAKK0ZfZ3"
 
-tags: ['deeplearning', 'natural language processing']
-categories: ['Introduction']
+
+tags: ['natural language processing']
+categories: ['NLP']
 ---
 
-### How I improved my typing speed and how you can too!
-
-*I was able to get hold of the data used in the following analysis, courtesy of
-Noah, creator and maintainer of *[TypeRacer Data, a third party information
-center for TypeRacer.](http://www.typeracerdata.com/about)
+*I was able to get hold of the data used in the following analysis, courtesy of Noah, creator and maintainer of [TypeRacer Data, a third party information center for TypeRacer.](http://www.typeracerdata.com/about)*
 
 Ever wondered what influences your typing speed? Well there are various
 resources which can help you polish your technique but there’s more to it than
 just touch typing and finger placement. 
+
+Most of the time I am asked this question — **how did I improve my typing speed to achieve a speed of over 100 words per minute?**
 
 ### Consistency is Key
 
@@ -24,26 +24,24 @@ In October 2015, in my endeavour to improve my typing speed I stumbled upon
 against random people on the internet. Little did I know that the site was
 generating a gold mine of data and I would be a contributor of the same. Since
 then I have completed more than 4000 races in the past 3 years and my
-improvement over time is evident from the following graph — 
+improvement over time is evident from the following graph —
 
-![](https://cdn-images-1.medium.com/max/1000/1*YdJ0wkPxvAUrmzVn4WtioQ.png)
-<span class="figcaption_hack">Scatter plot of all my races</span>
+{{< figure src="https://cdn-images-1.medium.com/max/1000/1*YdJ0wkPxvAUrmzVn4WtioQ.png" title="Scatter plot of all my races" >}}
 
 I started with a mere 58 Words Per Minute (WPM) in 2015 and now average over 95
-WPM with a highest score of 128 WPM. 
+WPM with a highest score of 128 WPM.
 
-![](https://cdn-images-1.medium.com/max/750/1*TgyRGSSQm7MUVGegjFNBEA.png)
-<span class="figcaption_hack">Number of races played across the years</span>
+{{< figure src="https://cdn-images-1.medium.com/max/750/1*TgyRGSSQm7MUVGegjFNBEA.png" title="Number of races played across the years" >}}
 
 I completed over 3000 races in 2016 and 2017 combined. This number might be
 dwarfed by other people on the website easily, but for me it was the sheer
-quantity and consistency that allowed me to raise my bar higher. 
+quantity and consistency that allowed me to raise my bar higher.
 
 <br> 
 
 ### Progress over time
 
-![](https://cdn-images-1.medium.com/max/1500/1*45rl-A0smsxHhSiw_vykvw.png)
+{{< figure src="https://cdn-images-1.medium.com/max/1500/1*45rl-A0smsxHhSiw_vykvw.png" title="Box plot of all my races over time" >}}
 
 According to my race data, I used to play 125 races in a month on an average
 which helped me register the most frequent words in my muscle memory. 
@@ -51,12 +49,13 @@ which helped me register the most frequent words in my muscle memory.
 You can see that there’s a dip in the months of May, June and July during which
 I had my year end exams. After that there was a consistent increase in my
 average WPM in the following months. These breaks kind of helped me rejuvenate
-my typing game except for 2018 during which I played very few games. 
+my typing game.
+
+2018 is an exception since the sample space over which the graph has been plotted is way less than the other years. As you can see in the “Count vs Year” graph above, I played only 250 games in the year of 2018.
 
 ### About the data
 
-![](https://cdn-images-1.medium.com/max/750/1*nZeo7p0OtZYLV-t7c7vDag.png)
-<span class="figcaption_hack">Texts added gradually over time</span>
+{{< figure src="https://cdn-images-1.medium.com/max/750/1*nZeo7p0OtZYLV-t7c7vDag.png" title="Texts added gradually over time" >}}
 
 There are over 5200 active texts site wide used in the races. Most of these
 texts are
@@ -83,7 +82,9 @@ It ranges from 0.599 to 1.433 for the given texts — higher the value, lesser t
 difficulty. One of the most difficult texts on site according to the difficulty
 rating is — 
 
-    "This man right here," McGuinness said, pointing at Kenna, "he\'s going to change the world." That was his instinctive feeling, and the manager of a band like U2 is a man who knows music.
+    "This man right here," McGuinness said, pointing at Kenna, 
+    "he\'s going to change the world." That was his instinctive 
+    feeling, and the manager of a band like U2 is a man who knows music.
 
 while the easiest text to type is — 
 
@@ -93,9 +94,17 @@ The **top score** on the website is **3600** **WPM** (Words per minute) (which
 seems impossible even with a modern stenographer keyboard) while the text which
 has the **least top score** of **151 WPM** achieved on is — 
 
-    Waiter: What is your name? Aladeen: Allison Burgers. Waiter: That's a made up name. What's your real name? Aladeen: My name is Ladiz. Waiter: Ladiz what? Aladeen: Ladiz Washroom. Waiter: So your name is like the sign. Ladies washroom? That is a made up name, what is your real name? I am interested. We are interested. Aladeen: Emplyes. Waiter: Emplyes what!? Aladeen: Emplyes Mustwashhands. Waiter: That is a made up name. What is your real name. Aladeen: Max. Waiter: Max what? Aladeen: Imumoccupancy120. Waiter: There's a number in the name? WHO ARE YOU!?
+    Waiter: What is your name? Aladeen: Allison Burgers. Waiter: 
+    That's a made up name. What's your real name? Aladeen: My name 
+    is Ladiz. Waiter: Ladiz what Aladeen: Ladiz Washroom. Waiter: 
+    So your name is like the sign. Ladies washroom? That is a made 
+    up name, what is your real name? I am interested. We are interested. 
+    Aladeen: Emplyes. Waiter: Emplyes what!? Aladeen: Emplyes Mustwashhands. 
+    Waiter: That is a made up name. What is your real name. Aladeen: 
+    Max. Waiter: Max what? Aladeen: Imumoccupancy120. Waiter: There's 
+    a number in the name? WHO ARE YOU!?
 
-This led me to the question —** **
+This led me to the question —
 
 #### What influences our speed while typing?
 
@@ -109,10 +118,7 @@ increased number of **punctuation, capital letters and length of text.**
 The following graph shows a change in difficulty rating across the above
 mentioned three factors on a subset of texts which I have typed.
 
-![](https://cdn-images-1.medium.com/max/1000/1*YVJXxXC6DC3Au0Ssmt7u9A.png)
-<span class="figcaption_hack">Difficulty Rating across length of text, number of punctuations and capital
-letters in it. (**Note: **Lower the magnitude of the difficulty rating, the more
-difficult it is to type the text)</span>
+{{< figure src="https://cdn-images-1.medium.com/max/1000/1*YVJXxXC6DC3Au0Ssmt7u9A.png" title="Speed(WPM) across length of text, number of punctuations and capital letters in it." >}}
 
 The above graph makes it clear that — 
 
@@ -156,11 +162,22 @@ three classes  —
 1.  Accuracy
 1.  Difficulty rating
 
-I managed to achieve an accuracy of 49% which is pretty bad and only better than
-random chance of 33.33%. 
+Using Logistic Regression I managed to achieve an accuracy of 49.8% which is pretty bad and only better than random chance of 33.33%.
+
+The whole point of doing this exercise is to explore what kind of features would be useful to evaluate a person’s typing speed. With the kind of accuracy achieved using the current features and model, it seems we would require more feature engineering and a better model to get a descent accuracy score.
+
+### Conclusion
+
+1. We learnt how consistent practising can help improve your typing speed.
+2. We also saw the effects of punctuation, capital case and length of text on the overall typing speed.
+3. And we explored whether these features would be useful in a simple classification task.
 
 ### Future Scope
 
-Better features can be extracted by running the sentences through an LSTM to
-obtain intermediary features. This will allow us to include word order of the
-text which contributes 
+Better features can be extracted by running the sentences through an LSTM to obtain intermediary features. This will allow us to include word order in the text as a feature. This will help the model to learn frequent patterns of words which appear in conjunction.
+
+Another way to reinforce the model is to feed the words which are frequently mis-typed. A more complex but useful data would be the flight time between two letters. This data, then, can also be used to build keystroke behavioural profiles of each person.
+
+---
+
+All the data and code for this blog can be found [here](https://github.com/nirajpandkar/typeracer-analysis).
