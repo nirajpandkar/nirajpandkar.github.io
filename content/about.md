@@ -1,7 +1,6 @@
 ---
-author: Niraj Pandkar
 date: 2019-11-30T11:21:13+05:30
-draft: true
+draft: false
 ---
 
 {{< figure src="/images/profilepic.jpg" height="150" width="100" title="Niraj Pandkar" >}}
