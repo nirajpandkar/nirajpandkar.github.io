@@ -4,7 +4,6 @@ date: 2019-11-25T23:18:05+05:30
 draft: true
 featured_image: "https://miro.medium.com/max/8690/0*xc-UnTMdAKK0ZfZ3"
 
-
 tags: ['natural language processing']
 categories: ['NLP']
 ---
