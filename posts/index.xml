@@ -1,27 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Niraj Pandkar</title>
-    <link>https://nirajpandkar.github.io/posts/</link>
-    <description>Recent content in Posts on Niraj Pandkar</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Mon, 25 Nov 2019 23:18:05 +0530</lastBuildDate>
-    
-	<atom:link href="https://nirajpandkar.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>How I improved my typing speed and how you can too!</title>
-      <link>https://nirajpandkar.github.io/2019/11/typeracer-analysis/</link>
-      <pubDate>Mon, 25 Nov 2019 23:18:05 +0530</pubDate>
-      
-      <guid>https://nirajpandkar.github.io/2019/11/typeracer-analysis/</guid>
-      <description>I was able to get hold of the data used in the following analysis, courtesy of Noah, creator and maintainer of TypeRacer Data, a third party information center for TypeRacer.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Niraj Pandkar</title><link>https://nirajpandkar.github.io/posts/</link><description>Recent content in Posts on Niraj Pandkar</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 25 Nov 2019 23:18:05 +0530</lastBuildDate><atom:link href="https://nirajpandkar.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>How I improved my typing speed and how you can too!</title><link>https://nirajpandkar.github.io/2019/11/typeracer-analysis/</link><pubDate>Mon, 25 Nov 2019 23:18:05 +0530</pubDate><guid>https://nirajpandkar.github.io/2019/11/typeracer-analysis/</guid><description>I was able to get hold of the data used in the following analysis, courtesy of Noah, creator and maintainer of TypeRacer Data, a third party information center for TypeRacer.
 Ever wondered what influences your typing speed? Well there are various resources which can help you polish your technique but there’s more to it than just touch typing and finger placement.
-Most of the time I am asked this question — how did I improve my typing speed to achieve a speed of over 100 words per minute?</description>
-    </item>
-    
-  </channel>
-</rss>
+Most of the time I am asked this question — how did I improve my typing speed to achieve a speed of over 100 words per minute?</description></item></channel></rss>
