@@ -6,6 +6,7 @@ featured_image: "https://miro.medium.com/max/8690/0*xc-UnTMdAKK0ZfZ3"
 
 tags: ['natural language processing']
 categories: ['NLP']
+toc: true
 ---
 
 *I was able to get hold of the data used in the following analysis, courtesy of Noah, creator and maintainer of [TypeRacer Data, a third party information center for TypeRacer.](http://www.typeracerdata.com/about)*
