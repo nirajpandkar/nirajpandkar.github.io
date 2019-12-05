@@ -1,6 +1,6 @@
 ---
 title: "How to spin up a personal blog using Hugo - Part 1"
-date: 2019-12-1T23:18:05+05:30
+date: 2019-12-01T23:18:05+05:30
 draft: false
 featured_image: "/images/unsplash-blog-1.jpg"
 
