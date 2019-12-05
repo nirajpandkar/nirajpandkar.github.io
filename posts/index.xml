@@ -25,10 +25,10 @@ Most of the time I am asked this question — how did I improve my typing speed 
     
     <item>
       <title>How to spin up a personal blog using Hugo - Part 1</title>
-      <link>https://nirajpandkar.github.io/2019/11/hugo-installation-1/</link>
-      <pubDate>Mon, 25 Nov 2019 23:18:05 +0530</pubDate>
+      <link>https://nirajpandkar.github.io/1/01/hugo-installation-1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://nirajpandkar.github.io/2019/11/hugo-installation-1/</guid>
+      <guid>https://nirajpandkar.github.io/1/01/hugo-installation-1/</guid>
       <description>Before we start, I just want to clarify what this article is and is not -
  Following is my experience of installing a Hugo blog to maintain my personal abode of learnings. This includes the hiccups I encountered along the way. Since I have set this blog up on Ubuntu 16.04, I&#39;ll be documenting the steps I had to follow to spin up a satisfactory blog accordingly and eventually host it on Github Pages.</description>
     </item>
