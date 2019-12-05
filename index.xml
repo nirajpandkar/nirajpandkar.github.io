@@ -12,9 +12,18 @@
             <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
         
         
-            <lastBuildDate>Sat, 30 Nov 2019 11:21:13 +0530</lastBuildDate>
+            <lastBuildDate>Sun, 01 Dec 2019 23:18:05 +0530</lastBuildDate>
         
         <atom:link href="https://nirajpandkar.github.io/" rel="self" type="application/rss+xml" />
+        
+            <item>
+                <title>Posts</title>
+                <link>https://nirajpandkar.github.io/posts/</link>
+                <pubDate>Sun, 01 Dec 2019 23:18:05 +0530</pubDate>
+                
+                <guid>https://nirajpandkar.github.io/posts/</guid>
+                <description></description>
+            </item>
         
             <item>
                 <title></title>
@@ -118,15 +127,6 @@ founded in my second year for organizing competitions and workshops.&lt;/li&gt;
 &lt;li&gt;Infosys Hackathon (Second runners-up)&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-            </item>
-        
-            <item>
-                <title>Posts</title>
-                <link>https://nirajpandkar.github.io/posts/</link>
-                <pubDate>Mon, 25 Nov 2019 23:18:05 +0530</pubDate>
-                
-                <guid>https://nirajpandkar.github.io/posts/</guid>
-                <description></description>
             </item>
         
     </channel>

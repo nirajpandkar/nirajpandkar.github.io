@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>How to spin up a personal blog using Hugo - Part 1 | Niraj Pandkar</title><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noodp" />
+<meta name="Description" content="LoveIt Theme Demo">
+<link rel="prev" href="https://nirajpandkar.github.io/2019/11/typeracer-analysis/" />
+<link rel="canonical" href="https://nirajpandkar.github.io/2019/12/hugo-installation-1/" />
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to spin up a personal blog using Hugo - Part 1"/>
+<meta name="twitter:description" content="Before we start, I just want to clarify what this article is and is not -
+ Following is my experience of installing a Hugo blog to maintain my personal abode of learnings. This includes the hiccups I encountered along the way. Since I have set this blog up on Ubuntu 16.04, I&#39;ll be documenting the steps I had to follow to spin up a satisfactory blog accordingly and eventually host it on Github Pages."/>
+<script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to spin up a personal blog using Hugo - Part 1",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https:\/\/nirajpandkar.github.io\/2019\/12\/hugo-installation-1\/"
+    },
+    
+        "image": {
+            "@type": "ImageObject",
+            "url": "https:\/\/nirajpandkar.github.io\/cover.png",
+            "width":  800 ,
+            "height":  600 
+        },
+    
+    "genre": "posts",
+    
+        "keywords": "hugo",
+    
+    "wordcount":  625 ,
+    "url": "https:\/\/nirajpandkar.github.io\/2019\/12\/hugo-installation-1\/",
+    
+        "datePublished": "2019-12-01T23:18:05\x2b05:30",
+    
+    
+        "dateModified": "2019-12-01T23:18:05\x2b05:30",
+    
+    
+        "license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.",
+    
+    
+        "publisher": {
+            "@type": "Organization",
+            "name": "XXXX",
+            "logo": {
+            "@type": "ImageObject",
+            "url": "https:\/\/nirajpandkar.github.io\/logo.png",
+            "width":  127 ,
+            "height":  40 
+            }
+        },
+    
+    
+    "description": ""
+    }
+    </script>
+<link rel="stylesheet" href="/css/style.min.css">
+<link rel="stylesheet" href="/css/lib/fontawesome-free/all.min.min.css">
+
+<link rel="stylesheet" href="/css/lib/animate/animate.min.min.css">
+
+    </head>
+    <body>
+        <script>
+            window.isDark = (window.localStorage && window.localStorage.getItem('theme')) === 'dark';
+            window.isDark && document.body.classList.add('dark-theme');
+        </script>
+        <div class="wrapper">
+            <nav class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-header animated bounceIn">
+            <a href="https://nirajpandkar.github.io/">Niraj Pandkar</a>
+        </div>
+        <div class="navbar-menu">
+            
+            
+                <a class="menu-item" href="https://nirajpandkar.github.io/posts" title="">Posts</a>
+            
+                <a class="menu-item" href="https://nirajpandkar.github.io/tags" title="">Tags</a>
+            
+                <a class="menu-item" href="https://nirajpandkar.github.io/categories" title="">Categories</a>
+            
+                <a class="menu-item" href="https://nirajpandkar.github.io/about" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a>
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile">
+     <div class="navbar-container">
+        <div class="navbar-header">
+            <div class="navbar-header-title animated bounceIn">
+                <a href="https://nirajpandkar.github.io/">Niraj Pandkar</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="navbar-menu" id="mobile-menu">
+            
+            
+                <a class="menu-item" href="https://nirajpandkar.github.io/posts" title="">Posts</a>
+            
+                <a class="menu-item" href="https://nirajpandkar.github.io/tags" title="">Tags</a>
+            
+                <a class="menu-item" href="https://nirajpandkar.github.io/categories" title="">Categories</a>
+            
+                <a class="menu-item" href="https://nirajpandkar.github.io/about" title="">About</a>
+            
+            <a href="javascript:void(0);" class="theme-switch"><i class="fas fa-adjust fa-rotate-180 fa-fw"></i></a>
+        </div>
+    </div>
+</nav><main class="main">
+                <div class="container">
+                    
+    
+    
+    
+
+    <article class="post-warp">
+        <h1 class="post-title animated flipInX">How to spin up a personal blog using Hugo - Part 1</h1>
+
+        <div class="post-meta">
+            <div class="post-meta-main">
+                <a class="author" href="https://nirajpandkar.github.io/" rel="author"><i class="fas fa-user-circle fa-fw"></i>Niraj&nbsp;</a>
+                <span class="post-category">
+                        included in
+                        <i class="far fa-folder fa-fw"></i><a href="https://nirajpandkar.github.io/categories/personal-website/">Personal Website</a>
+                            
+                    </span>
+            </div>
+            <div class="post-meta-other">
+                <i class="far fa-calendar-alt fa-fw"></i><time datetime=2019-12-01>2019-12-01</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>about 625 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>3 min&nbsp;</div>
+        </div>
+
+        
+            <div class="post-featured-image">
+                <img src=/images/loading.svg data-sizes=auto data-src=/images/unsplash-blog-1.jpg alt="featured image" class="lazyload">
+            </div>
+        
+
+        <div class="post-toc" id="post-toc">
+                <h2 class="post-toc-title">Table of Contents</h2>
+                <div class="post-toc-content">
+                    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#setting-up-and-installing-hugo">Setting up and installing Hugo</a></li>
+    <li><a href="#create-a-new-hugo-site">Create a new Hugo site</a>
+      <ul>
+        <li><a href="#installing-a-theme">Installing a theme</a></li>
+        <li><a href="#run-hugo-run">Run Hugo Run</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+            </div>
+            <div class="post-toc-mobile" id="post-toc-mobile">
+                <details>
+                    <summary><div class="post-toc-title"><span>Table of Contents</span><span><i class="details icon fas fa-angle-down"></i></span></div></summary>
+                    <div class="post-toc-content">
+                        
+                        
+                        <nav id="TableOfContentsMobile">
+  <ul>
+    <li><a href="#setting-up-and-installing-hugo">Setting up and installing Hugo</a></li>
+    <li><a href="#create-a-new-hugo-site">Create a new Hugo site</a>
+      <ul>
+        <li><a href="#installing-a-theme">Installing a theme</a></li>
+        <li><a href="#run-hugo-run">Run Hugo Run</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                    </div>
+                </details>
+            </div>
+
+        <div class="post-content">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <p>Before we start, I just want to clarify what this article is and is not -</p>
+<ul>
+<li>Following <strong>is</strong> my experience of installing a Hugo blog to maintain my personal abode of learnings. This includes the hiccups I encountered along the way. Since I have set this blog up on Ubuntu 16.04, I'll be documenting the steps I had to follow to spin up a satisfactory blog accordingly and eventually host it on Github Pages.</li>
+<li>This certainly <strong>isn't</strong> a complete and one-stop tutorial for setting up a Hugo blog though I'll try to be self-sufficient by providing as many links as I can and give a heads up wherever necessary using my very special superpower - <em>hindsight</em>.</li>
+</ul>
+<p>Now that we have that out of the way, here's my journey to setting up a personal website/blog using Hugo - right from setting up an environment to adding Google Analytics to track user viewership. To make it less overwhelming and for the purpose of clarity, I have broken the article into parts -</p>
+<ol>
+<li>Installing and running Hugo website <strong>(You are here)</strong></li>
+<li>Deploying your website to Github Pages - TBD</li>
+<li>Adding Google Analytics and setting up a convenient Continuous Integration/Development environment. - TBD</li>
+</ol>
+<a class="post-dummy-target" id="setting-up-and-installing-hugo"></a><h2>Setting up and installing Hugo</h2>
+<blockquote>
+<p>The first mistake I did was to install <code>hugo</code> via Ubuntu 16.04's package manager - <code>apt</code> because it seemed the easiest. It costed me a solid 30 minutes to figure out what was going wrong since I could create all the templates necessary for a new website but not get it working on localhost. And at the time of writing this, Ubuntu 18.04 too is facing the same problem.</p>
+</blockquote>
+<p>The second easiest thing is installing hugo via <code>snap</code> package manager.</p>
+<pre><code>sudo apt-get install snapd
+sudo snap install hugo
+</code></pre>
+<a class="post-dummy-target" id="create-a-new-hugo-site"></a><h2>Create a new Hugo site</h2>
+<p>To release the Hugo goodness -</p>
+<pre><code>hugo new site &lt;foldername&gt;
+</code></pre>
+<p>This generates the required skeleton configuration files. If you <code>cd</code> into the folder and run <code>hugo server</code>, you'll find that an empty site awaits you at <code>localhost:1313</code>. Pretty&hellip; underwhelming.</p>
+<p>Fret not. The missing puzzle piece is installing a theme. I am using this amazing theme called LoveIt by <a href="https://dillonzq.com/">Dillon</a>.</p>
+<a class="post-dummy-target" id="installing-a-theme"></a><h3>Installing a theme</h3>
+<p>Instead of just reiterating the commands for installing Dillon's theme, it's easier to just link his <a href="https://github.com/dillonzq/LoveIt#getting-started">README</a>. It's pretty extensive and easy to follow. +1 for documentation.</p>
+<blockquote>
+<p>Onto my hindsight superpower, I'd recommend to clone the theme instead of making a submodule. It's just easier to maintain in a repository.</p>
+</blockquote>
+<p>In the LoveIt theme folder, you'll find <code>exampleSite</code> which contains required paraphernalia -</p>
+<ol>
+<li><code>static</code> - Contains images, favicons and thumbnails. This is the place where you'll place the images you'll use in your posts as a convention.</li>
+<li><code>content</code> - Contains starting About page and a demo blog post to get you started.</li>
+<li><code>config.toml</code> - The most important thing you'll need to copy from the theme to your root folder. This is the configuration file which renders the site as it is now.</li>
+</ol>
+<p>Copy these 3 things to your root folder and you're almost there.</p>
+<p><code>zh</code> - This contains post content in Zhōngwén language if I'm not wrong. You'll know if you require it.</p>
+<a class="post-dummy-target" id="run-hugo-run"></a><h3>Run Hugo Run</h3>
+<p>To render the site and bear the fruit of your effort -</p>
+<pre><code>hugo server -D --bind=0.0.0.0
+</code></pre>
+<ol>
+<li><code>-D</code> - Serves posts with properties <code>draft=false</code> which by definition don't render on production unless the boolean is flipped.</li>
+<li><code>--bind</code> - This particular flag allows you to access your site via other device with the ip address of  your host machine.</li>
+</ol>
+<p><strong>Voila! Your site should be up and running on <code>localhost:1313</code> .</strong></p>
+<blockquote>
+<p>Though while accessing the website on other devices, I wasn't able to get past the home page since it tries to access <code>localhost:1313</code> explicity on clicking any of the links. Investigation required.</p>
+</blockquote>
+
+        </div>
+
+        <div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>This article is updated with 2019-12-01</span>
+            </div>
+            <div class="post-info-license">
+                
+            </div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md">
+                
+                    
+                        <span><a class="link-to-markdown" href="https://nirajpandkar.github.io/2019/12/hugo-installation-1/index.md" target="_blank"></a></span>
+                    
+                
+            </div>
+            <div class="post-info-share">
+                
+                    <span>
+    
+        <a href="//twitter.com/share?url=https%3a%2f%2fnirajpandkar.github.io%2f2019%2f12%2fhugo-installation-1%2f&amp;text=How%20to%20spin%20up%20a%20personal%20blog%20using%20Hugo%20-%20Part%201&amp;via=Niraj_pandkar" target="_blank" title="Share on Twitter">
+            <i class="fab fa-twitter fa-fw"></i>
+        </a>
+    
+    
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fnirajpandkar.github.io%2f2019%2f12%2fhugo-installation-1%2f" target="_blank" title="Share on Facebook">
+            <i class="fab fa-facebook-square fa-fw"></i>
+        </a>
+    
+    
+        <a href="//reddit.com/submit?url=https%3a%2f%2fnirajpandkar.github.io%2f2019%2f12%2fhugo-installation-1%2f&amp;title=How%20to%20spin%20up%20a%20personal%20blog%20using%20Hugo%20-%20Part%201" target="_blank" title="Share on Reddit">
+            <i class="fab fa-reddit fa-fw"></i>
+        </a>
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section>
+            
+                
+                    <span class="tag">
+                        <a href="https://nirajpandkar.github.io/tags/hugo/"><i class="fas fa-tag fa-fw"></i>hugo</a>
+                    </span>
+                
+            
+        </section>
+        <section>
+            <span><a href="javascript:window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="https://nirajpandkar.github.io/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+            <a href="https://nirajpandkar.github.io/2019/11/typeracer-analysis/" class="prev" rel="prev" title="How I improved my typing speed and how you can too!"><i class="fas fa-angle-left fa-fw"></i>How I improved my typing speed and how you can too!</a>
+        
+        
+    </div>
+</div>
+
+        <div class="post-comment">
+            
+            
+
+            
+        </div>
+    </article></div>
+            </main>
+            <footer class="footer">
+    <div class="copyright">
+        <div class="copyright-line">
+            Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="external nofollow noopener noreffer">LoveIt<i class="far fa-heart fa-fw"></i></a>
+        </div>
+        <div class="copyright-line">
+            <i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://nirajpandkar.github.io/">Niraj</a></span><span class="license">&nbsp;|&nbsp;<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+    </div>
+</footer>
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+
+    
+    
+
+
+
+    
+    
+
+
+
+
+
+    
+    
+
+
+<script src="/js/lib/jquery/jquery.slim.min.min.js"></script>
+<script src="/js/lib/lazysizes/lazysizes.min.min.js"></script>
+<script src="/js/lib/smooth-scroll/smooth-scroll.polyfills.min.min.js"></script><script>window.scroll = new SmoothScroll('[data-scroll]', {speed: 300, speedAsDuration: true});</script>
+
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+
+
+
+<script src="/js/blog.min.js"></script>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-153674841-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</div>
+        <a href="#" class="dynamic-to-top" id="dynamic-to-top" data-scroll><span>&nbsp;</span></a>
+    </body>
+</html>
