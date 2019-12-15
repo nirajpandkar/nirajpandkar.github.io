@@ -3,7 +3,105 @@
         <url>
             <loc>https://nirajpandkar.github.io/categories/</loc>
             
-                <lastmod>2019-12-01T23:18:05+05:30</lastmod>
+                <lastmod>2019-12-15T17:12:39+05:30</lastmod>
+            
+            
+                <changefreq>weekly</changefreq>
+            
+            
+                <priority>0.5</priority>
+            
+            
+        </url>
+    
+        <url>
+            <loc>https://nirajpandkar.github.io/categories/devops/</loc>
+            
+                <lastmod>2019-12-15T17:12:39+05:30</lastmod>
+            
+            
+                <changefreq>weekly</changefreq>
+            
+            
+                <priority>0.5</priority>
+            
+            
+        </url>
+    
+        <url>
+            <loc>https://nirajpandkar.github.io/tags/docker/</loc>
+            
+                <lastmod>2019-12-15T17:12:39+05:30</lastmod>
+            
+            
+                <changefreq>weekly</changefreq>
+            
+            
+                <priority>0.5</priority>
+            
+            
+        </url>
+    
+        <url>
+            <loc>https://nirajpandkar.github.io/2019/12/pgadmin-docker/</loc>
+            
+                <lastmod>2019-12-15T17:12:39+05:30</lastmod>
+            
+            
+                <changefreq>weekly</changefreq>
+            
+            
+                <priority>0.5</priority>
+            
+            
+        </url>
+    
+        <url>
+            <loc>https://nirajpandkar.github.io/</loc>
+            
+                <lastmod>2019-12-15T17:12:39+05:30</lastmod>
+            
+            
+                <changefreq>weekly</changefreq>
+            
+            
+                <priority>0.5</priority>
+            
+            
+        </url>
+    
+        <url>
+            <loc>https://nirajpandkar.github.io/tags/pgadmin/</loc>
+            
+                <lastmod>2019-12-15T17:12:39+05:30</lastmod>
+            
+            
+                <changefreq>weekly</changefreq>
+            
+            
+                <priority>0.5</priority>
+            
+            
+        </url>
+    
+        <url>
+            <loc>https://nirajpandkar.github.io/posts/</loc>
+            
+                <lastmod>2019-12-15T17:12:39+05:30</lastmod>
+            
+            
+                <changefreq>weekly</changefreq>
+            
+            
+                <priority>0.5</priority>
+            
+            
+        </url>
+    
+        <url>
+            <loc>https://nirajpandkar.github.io/tags/</loc>
+            
+                <lastmod>2019-12-15T17:12:39+05:30</lastmod>
             
             
                 <changefreq>weekly</changefreq>
@@ -43,49 +141,7 @@
         </url>
     
         <url>
-            <loc>https://nirajpandkar.github.io/</loc>
-            
-                <lastmod>2019-12-01T23:18:05+05:30</lastmod>
-            
-            
-                <changefreq>weekly</changefreq>
-            
-            
-                <priority>0.5</priority>
-            
-            
-        </url>
-    
-        <url>
             <loc>https://nirajpandkar.github.io/categories/personal-website/</loc>
-            
-                <lastmod>2019-12-01T23:18:05+05:30</lastmod>
-            
-            
-                <changefreq>weekly</changefreq>
-            
-            
-                <priority>0.5</priority>
-            
-            
-        </url>
-    
-        <url>
-            <loc>https://nirajpandkar.github.io/posts/</loc>
-            
-                <lastmod>2019-12-01T23:18:05+05:30</lastmod>
-            
-            
-                <changefreq>weekly</changefreq>
-            
-            
-                <priority>0.5</priority>
-            
-            
-        </url>
-    
-        <url>
-            <loc>https://nirajpandkar.github.io/tags/</loc>
             
                 <lastmod>2019-12-01T23:18:05+05:30</lastmod>
             
