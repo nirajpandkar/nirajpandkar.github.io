@@ -1,7 +1,7 @@
 ---
 title: "How to use a Dockerized PgAdmin and make user management easy"
 date: 2019-12-15T17:12:39+05:30
-draft: true
+draft: false
 
 featured_image: "/images/pgadmin-docker.png"
 
