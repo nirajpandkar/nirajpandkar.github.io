@@ -7,6 +7,7 @@
 <meta name="robots" content="noodp" />
 <meta name="Description" content="LoveIt Theme Demo">
 <link rel="prev" href="https://nirajpandkar.github.io/2019/12/hugo-installation-1/" />
+<link rel="next" href="https://nirajpandkar.github.io/2023/05/top-k-frequent-elements/" />
 <link rel="canonical" href="https://nirajpandkar.github.io/2019/12/pgadmin-docker/" />
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -19,7 +20,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to use a Dockerized PgAdmin and make user management easy"/>
 <meta name="twitter:description" content="We interact with databases almost all day long - consuming video content on the largest streaming service, chatting with your friend on the most widely used chat application or just poking your friend on the most powerful social networking site.
-When a company&#39;s heart and soul rests in a database, as ours do at Riverus, it becomes mandatory to make it easily accessible not only to the engineering and data science team, but to the legal, sales and marketing team as well."/>
+When a company&rsquo;s heart and soul rests in a database, as ours do at Riverus, it becomes mandatory to make it easily accessible not only to the engineering and data science team, but to the legal, sales and marketing team as well."/>
 <script type="application/ld+json">
     {
     "@context": "http://schema.org",
@@ -44,10 +45,10 @@ When a company&#39;s heart and soul rests in a database, as ours do at Riverus, 
     "wordcount":  781 ,
     "url": "https:\/\/nirajpandkar.github.io\/2019\/12\/pgadmin-docker\/",
     
-        "datePublished": "2019-12-15T17:12:39\x2b05:30",
+        "datePublished": "2019-12-15T17:12:39\u002b05:30",
     
     
-        "dateModified": "2019-12-15T17:12:39\x2b05:30",
+        "dateModified": "2019-12-15T17:12:39\u002b05:30",
     
     
         "license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.",
@@ -229,11 +230,11 @@ When a company&#39;s heart and soul rests in a database, as ours do at Riverus, 
             
             
             <p>We interact with databases almost all day long - consuming video content on the largest streaming service, chatting with your friend on the most widely used chat application or just poking your friend on the most powerful social networking site.</p>
-<p>When a company's heart and soul rests in a database, as ours do at <a href="https://riverus.in/">Riverus</a>, it becomes mandatory to make it easily accessible not only to the engineering and data science team, but to the legal, sales and marketing team as well.</p>
+<p>When a company&rsquo;s heart and soul rests in a database, as ours do at <a href="https://riverus.in/">Riverus</a>, it becomes mandatory to make it easily accessible not only to the engineering and data science team, but to the legal, sales and marketing team as well.</p>
 <p><em>At Riverus, we use PostgreSQL database system to store almost all the historical and latest judgement cases and provide insightful analytics on the same. PgAdmin is our heavily used gateway to interact with the database.</em></p>
 <a class="post-dummy-target" id="what-to-except-from-this-article"></a><h2>What to except from this article?</h2>
 <ol>
-<li>Using a Docker image created for pgAdmin with minimum side hustle and it's advantages.</li>
+<li>Using a Docker image created for pgAdmin with minimum side hustle and it&rsquo;s advantages.</li>
 <li>In case of a server or docker application crash, how to retain user and server data.</li>
 <li>My experience and learnings along the way.</li>
 </ol>
@@ -250,9 +251,9 @@ When a company&#39;s heart and soul rests in a database, as ours do at Riverus, 
 </ol>
 <p>With this I set out to write my own Dockerfile when I found that someone had already created a <a href="https://github.com/fenglc/dockercloud-pgadmin4">comprehensive pgAdmin docker</a> (which is deprecated at the time of writing this article). I tried running this docker container and ran into some issues which I fixed and made some changes in the Dockerfile which is now hosted as a <a href="https://github.com/nirajpandkar/pgadmin-docker">fork here</a>.</p>
 <a class="post-dummy-target" id="installing-and-hosting-pgadmin-docker"></a><h2>Installing and hosting PgAdmin docker</h2>
-<p>Since the main focus of this blog is to educate the reader on the ease of access, I am not going to dive into installation. You'll find detailed instructions to setup docker and spin up a working PgAdmin container in my <a href="https://github.com/nirajpandkar/pgadmin-docker/blob/master/README.md">README</a>.</p>
-<p>The next steps would be to host it on a server and make it available to the user. If you've got a working container up and running, you may have noticed that the application is running on port 5050.</p>
-<p>You can either forward port 5050 of your server or use a proxy server - <a href="http://tutorials.jenkov.com/nginx/index.html">Nginx</a>. I'll have a detailed article on this topic soon.</p>
+<p>Since the main focus of this blog is to educate the reader on the ease of access, I am not going to dive into installation. You&rsquo;ll find detailed instructions to setup docker and spin up a working PgAdmin container in my <a href="https://github.com/nirajpandkar/pgadmin-docker/blob/master/README.md">README</a>.</p>
+<p>The next steps would be to host it on a server and make it available to the user. If you&rsquo;ve got a working container up and running, you may have noticed that the application is running on port 5050.</p>
+<p>You can either forward port 5050 of your server or use a proxy server - <a href="http://tutorials.jenkov.com/nginx/index.html">Nginx</a>. I&rsquo;ll have a detailed article on this topic soon.</p>
 <a class="post-dummy-target" id="saving-and-importing-user-data"></a><h2>Saving and importing user data</h2>
 <p>Once the users have setup their databases using their PgAdmin and database credentials for the first time, we can commence the wizardry.</p>
 <ul>
@@ -260,26 +261,26 @@ When a company&#39;s heart and soul rests in a database, as ours do at Riverus, 
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">docker cp `docker ps | grep &#39;riverus-pgadmin&#39; | awk &#39;{ print $1 }&#39;`:/var/lib/pgadmin /path/to/pgadmin-docker
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">docker cp `docker ps | grep &#39;riverus-pgadmin&#39; | awk &#39;{ print $1 }&#39;`:/var/lib/pgadmin /path/to/pgadmin-docker
 </code></pre></td></tr></table>
 </div>
-</div><p>You'll find a file called <code>pgadmin4.db</code> which is a sqlite database which stores all the user data including the servers created by the individual users inside their PgAdmin accounts as well as the query history per session. Additionally, you'll find a folder called <code>storage</code> which stores user saved queries.</p>
-<p><strong>Note:</strong> Don't forget to take a backup of this folder on your local machine or on your private git repositories (since it contains sensitive data)</p>
+</div><p>You&rsquo;ll find a file called <code>pgadmin4.db</code> which is a sqlite database which stores all the user data including the servers created by the individual users inside their PgAdmin accounts as well as the query history per session. Additionally, you&rsquo;ll find a folder called <code>storage</code> which stores user saved queries.</p>
+<p><strong>Note:</strong> Don&rsquo;t forget to take a backup of this folder on your local machine or on your private git repositories (since it contains sensitive data)</p>
 <ul>
-<li><strong>Now let's say, the unspeakable happens and the application crashes or worse the server reboots. You just have to run this one docker command to restore the application and user data</strong></li>
+<li><strong>Now let&rsquo;s say, the unspeakable happens and the application crashes or worse the server reboots. You just have to run this one docker command to restore the application and user data</strong></li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">cd ~/pgadmin-docker &amp;&amp; docker run -p 5050:5050 -d riverus-pgadmin &amp;&amp; docker cp ./pgadmin `docker ps | grep &#39;riverus-pgadmin&#39; | awk &#39;{ print $1 }&#39;`:/var/lib
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">cd ~/pgadmin-docker &amp;&amp; docker run -p 5050:5050 -d riverus-pgadmin &amp;&amp; docker cp ./pgadmin `docker ps | grep &#39;riverus-pgadmin&#39; | awk &#39;{ print $1 }&#39;`:/var/lib
 </code></pre></td></tr></table>
 </div>
-</div><p>This copies the whole <code>pgadmin</code> folder into the container after it starts. If you visit the webapp again, you'll see that all user data as well as stored queries is intact!</p>
+</div><p>This copies the whole <code>pgadmin</code> folder into the container after it starts. If you visit the webapp again, you&rsquo;ll see that all user data as well as stored queries is intact!</p>
 <p><img src="/images/celebration.gif" alt="Celebration"></p>
 <a class="post-dummy-target" id="future-scope"></a><h2>Future Scope</h2>
 <p>Instead of copying the data folder from the container to host and to the container again, the next step would be to build a docker image with the data folder integrated. If you are able to crack this, feel free to submit a <a href="https://github.com/nirajpandkar/pgadmin-docker">pull request</a>.</p>
@@ -359,6 +360,8 @@ When a company&#39;s heart and soul rests in a database, as ours do at Riverus, 
             <a href="https://nirajpandkar.github.io/2019/12/hugo-installation-1/" class="prev" rel="prev" title="How to spin up a personal blog using Hugo - Part 1"><i class="fas fa-angle-left fa-fw"></i>How to spin up a personal blog using Hugo - Part 1</a>
         
         
+            <a href="https://nirajpandkar.github.io/2023/05/top-k-frequent-elements/" class="next" rel="next" title="Top K Frequent Elements">Top K Frequent Elements<i class="fas fa-angle-right fa-fw"></i></a>
+        
     </div>
 </div>
 
@@ -376,7 +379,7 @@ When a company&#39;s heart and soul rests in a database, as ours do at Riverus, 
             Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="external nofollow noopener noreffer">LoveIt<i class="far fa-heart fa-fw"></i></a>
         </div>
         <div class="copyright-line">
-            <i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://nirajpandkar.github.io/">Niraj</a></span><span class="license">&nbsp;|&nbsp;<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+            <i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://nirajpandkar.github.io/">Niraj</a></span><span class="license">&nbsp;|&nbsp;<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
     </div>
 </footer>
 

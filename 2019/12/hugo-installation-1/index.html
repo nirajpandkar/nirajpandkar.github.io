@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How to spin up a personal blog using Hugo - Part 1"/>
 <meta name="twitter:description" content="Before we start, I just want to clarify what this article is and is not -
- Following is my experience of installing a Hugo blog to maintain my personal abode of learnings. This includes the hiccups I encountered along the way. Since I have set this blog up on Ubuntu 16.04, I&#39;ll be documenting the steps I had to follow to spin up a satisfactory blog accordingly and eventually host it on Github Pages."/>
+ Following is my experience of installing a Hugo blog to maintain my personal abode of learnings. This includes the hiccups I encountered along the way. Since I have set this blog up on Ubuntu 16.04, I&rsquo;ll be documenting the steps I had to follow to spin up a satisfactory blog accordingly and eventually host it on Github Pages."/>
 <script type="application/ld+json">
     {
     "@context": "http://schema.org",
@@ -45,10 +45,10 @@
     "wordcount":  625 ,
     "url": "https:\/\/nirajpandkar.github.io\/2019\/12\/hugo-installation-1\/",
     
-        "datePublished": "2019-12-01T23:18:05\x2b05:30",
+        "datePublished": "2019-12-01T23:18:05\u002b05:30",
     
     
-        "dateModified": "2019-12-01T23:18:05\x2b05:30",
+        "dateModified": "2019-12-01T23:18:05\u002b05:30",
     
     
         "license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.",
@@ -221,10 +221,10 @@
             
             <p>Before we start, I just want to clarify what this article is and is not -</p>
 <ul>
-<li>Following <strong>is</strong> my experience of installing a Hugo blog to maintain my personal abode of learnings. This includes the hiccups I encountered along the way. Since I have set this blog up on Ubuntu 16.04, I'll be documenting the steps I had to follow to spin up a satisfactory blog accordingly and eventually host it on Github Pages.</li>
-<li>This certainly <strong>isn't</strong> a complete and one-stop tutorial for setting up a Hugo blog though I'll try to be self-sufficient by providing as many links as I can and give a heads up wherever necessary using my very special superpower - <em>hindsight</em>.</li>
+<li>Following <strong>is</strong> my experience of installing a Hugo blog to maintain my personal abode of learnings. This includes the hiccups I encountered along the way. Since I have set this blog up on Ubuntu 16.04, I&rsquo;ll be documenting the steps I had to follow to spin up a satisfactory blog accordingly and eventually host it on Github Pages.</li>
+<li>This certainly <strong>isn&rsquo;t</strong> a complete and one-stop tutorial for setting up a Hugo blog though I&rsquo;ll try to be self-sufficient by providing as many links as I can and give a heads up wherever necessary using my very special superpower - <em>hindsight</em>.</li>
 </ul>
-<p>Now that we have that out of the way, here's my journey to setting up a personal website/blog using Hugo - right from setting up an environment to adding Google Analytics to track user viewership. To make it less overwhelming and for the purpose of clarity, I have broken the article into parts -</p>
+<p>Now that we have that out of the way, here&rsquo;s my journey to setting up a personal website/blog using Hugo - right from setting up an environment to adding Google Analytics to track user viewership. To make it less overwhelming and for the purpose of clarity, I have broken the article into parts -</p>
 <ol>
 <li>Installing and running Hugo website <strong>(You are here)</strong></li>
 <li>Deploying your website to Github Pages - TBD</li>
@@ -232,7 +232,7 @@
 </ol>
 <a class="post-dummy-target" id="setting-up-and-installing-hugo"></a><h2>Setting up and installing Hugo</h2>
 <blockquote>
-<p>The first mistake I did was to install <code>hugo</code> via Ubuntu 16.04's package manager - <code>apt</code> because it seemed the easiest. It costed me a solid 30 minutes to figure out what was going wrong since I could create all the templates necessary for a new website but not get it working on localhost. And at the time of writing this, Ubuntu 18.04 too is facing the same problem.</p>
+<p>The first mistake I did was to install <code>hugo</code> via Ubuntu 16.04&rsquo;s package manager - <code>apt</code> because it seemed the easiest. It costed me a solid 30 minutes to figure out what was going wrong since I could create all the templates necessary for a new website but not get it working on localhost. And at the time of writing this, Ubuntu 18.04 too is facing the same problem.</p>
 </blockquote>
 <p>The second easiest thing is installing hugo via <code>snap</code> package manager.</p>
 <pre><code>sudo apt-get install snapd
@@ -242,32 +242,32 @@ sudo snap install hugo
 <p>To release the Hugo goodness -</p>
 <pre><code>hugo new site &lt;foldername&gt;
 </code></pre>
-<p>This generates the required skeleton configuration files. If you <code>cd</code> into the folder and run <code>hugo server</code>, you'll find that an empty site awaits you at <code>localhost:1313</code>. Pretty&hellip; underwhelming.</p>
+<p>This generates the required skeleton configuration files. If you <code>cd</code> into the folder and run <code>hugo server</code>, you&rsquo;ll find that an empty site awaits you at <code>localhost:1313</code>. Pretty&hellip; underwhelming.</p>
 <p>Fret not. The missing puzzle piece is installing a theme. I am using this amazing theme called LoveIt by <a href="https://dillonzq.com/">Dillon</a>.</p>
 <a class="post-dummy-target" id="installing-a-theme"></a><h3>Installing a theme</h3>
-<p>Instead of just reiterating the commands for installing Dillon's theme, it's easier to just link his <a href="https://github.com/dillonzq/LoveIt#getting-started">README</a>. It's pretty extensive and easy to follow. +1 for documentation.</p>
+<p>Instead of just reiterating the commands for installing Dillon&rsquo;s theme, it&rsquo;s easier to just link his <a href="https://github.com/dillonzq/LoveIt#getting-started">README</a>. It&rsquo;s pretty extensive and easy to follow. +1 for documentation.</p>
 <blockquote>
-<p>Onto my hindsight superpower, I'd recommend to clone the theme instead of making a submodule. It's just easier to maintain in a repository.</p>
+<p>Onto my hindsight superpower, I&rsquo;d recommend to clone the theme instead of making a submodule. It&rsquo;s just easier to maintain in a repository.</p>
 </blockquote>
-<p>In the LoveIt theme folder, you'll find <code>exampleSite</code> which contains required paraphernalia -</p>
+<p>In the LoveIt theme folder, you&rsquo;ll find <code>exampleSite</code> which contains required paraphernalia -</p>
 <ol>
-<li><code>static</code> - Contains images, favicons and thumbnails. This is the place where you'll place the images you'll use in your posts as a convention.</li>
+<li><code>static</code> - Contains images, favicons and thumbnails. This is the place where you&rsquo;ll place the images you&rsquo;ll use in your posts as a convention.</li>
 <li><code>content</code> - Contains starting About page and a demo blog post to get you started.</li>
-<li><code>config.toml</code> - The most important thing you'll need to copy from the theme to your root folder. This is the configuration file which renders the site as it is now.</li>
+<li><code>config.toml</code> - The most important thing you&rsquo;ll need to copy from the theme to your root folder. This is the configuration file which renders the site as it is now.</li>
 </ol>
-<p>Copy these 3 things to your root folder and you're almost there.</p>
-<p><code>zh</code> - This contains post content in Zhōngwén language if I'm not wrong. You'll know if you require it.</p>
+<p>Copy these 3 things to your root folder and you&rsquo;re almost there.</p>
+<p><code>zh</code> - This contains post content in Zhōngwén language if I&rsquo;m not wrong. You&rsquo;ll know if you require it.</p>
 <a class="post-dummy-target" id="run-hugo-run"></a><h3>Run Hugo Run</h3>
 <p>To render the site and bear the fruit of your effort -</p>
 <pre><code>hugo server -D --bind=0.0.0.0
 </code></pre>
 <ol>
-<li><code>-D</code> - Serves posts with properties <code>draft=false</code> which by definition don't render on production unless the boolean is flipped.</li>
+<li><code>-D</code> - Serves posts with properties <code>draft=false</code> which by definition don&rsquo;t render on production unless the boolean is flipped.</li>
 <li><code>--bind</code> - This particular flag allows you to access your site via other device with the ip address of  your host machine.</li>
 </ol>
 <p><strong>Voila! Your site should be up and running on <code>localhost:1313</code> .</strong></p>
 <blockquote>
-<p>Though while accessing the website on other devices, I wasn't able to get past the home page since it tries to access <code>localhost:1313</code> explicity on clicking any of the links. Investigation required.</p>
+<p>Though while accessing the website on other devices, I wasn&rsquo;t able to get past the home page since it tries to access <code>localhost:1313</code> explicity on clicking any of the links. Investigation required.</p>
 </blockquote>
 
         </div>
@@ -360,7 +360,7 @@ sudo snap install hugo
             Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreffer">Hugo</a>&nbsp;|&nbsp;Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="external nofollow noopener noreffer">LoveIt<i class="far fa-heart fa-fw"></i></a>
         </div>
         <div class="copyright-line">
-            <i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://nirajpandkar.github.io/">Niraj</a></span><span class="license">&nbsp;|&nbsp;<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+            <i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://nirajpandkar.github.io/">Niraj</a></span><span class="license">&nbsp;|&nbsp;<a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
     </div>
 </footer>
 
