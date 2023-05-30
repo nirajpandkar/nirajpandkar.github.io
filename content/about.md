@@ -2,10 +2,12 @@
 date: 2019-11-30T11:21:13+05:30
 draft: false
 ---
-
+{{< style "img { height: 10rem; width: 10rem}" >}}
 {{< figure src="/images/profilepic.jpg" height="150" width="100" title="Niraj Pandkar" >}}
 
-This is Niraj! I'm currently working for Riverus, a Legal Tech startup doing some fun stuff. I'll be documenting my notes/learnings/hiccups, because unlike popular opinion, I love documentation. Don't @ me.
+This is Niraj! I'm currently a software engineer at Goldman Sachs. I'll be documenting my notes/learnings/muses, because unlike popular opinion, I love documentation. Don't @ me.
+
+NOTE: YET TO BE UPDATED TO THE LATEST.
 
 ## Professional Experience
 
