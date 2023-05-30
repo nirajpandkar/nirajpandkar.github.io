@@ -2,7 +2,6 @@
 date: 2019-11-30T11:21:13+05:30
 draft: false
 ---
-{{< style "img { height: 10rem; width: 10rem}" >}}
 {{< figure src="/images/profilepic.jpg" height="150" width="100" title="Niraj Pandkar" >}}
 
 This is Niraj! I'm currently a software engineer at Goldman Sachs. I'll be documenting my notes/learnings/muses, because unlike popular opinion, I love documentation. Don't @ me.
