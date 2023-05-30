@@ -29,7 +29,7 @@ hasCJKLanguage = false
 paginate = 12
 # google analytics code [UA-XXXXXXXX-X]
 # 谷歌分析代号 [UA-XXXXXXXX-X]
-googleAnalytics = "G-B3XSNCY63K"
+googleAnalytics = ""
 # copyright description used only for seo schema
 # 版权描述，仅仅用于 SEO
 copyright = ""
@@ -647,7 +647,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # Analytics config
   # 网站分析配置
   [params.analytics]
-    enable = false
+    enable = true
     # Google Analytics
     [params.analytics.google]
       id = "G-B3XSNCY63K"
