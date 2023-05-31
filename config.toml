@@ -734,8 +734,8 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
   # Table Of Contents settings
   # 目录设置
   [markup.tableOfContents]
-    startLevel = 2
-    endLevel = 6
+    startLevel = 1
+    endLevel = 3
 
 # Sitemap config
 # 网站地图配置
