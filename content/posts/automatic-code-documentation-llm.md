@@ -1,7 +1,7 @@
 ---
 title: "Automatic code documentation using LLM"
 date: 2025-01-19
-draft: true
+draft: false
 
 tags: ['personal project', 'llm']
 categories: ['Personal Project']
