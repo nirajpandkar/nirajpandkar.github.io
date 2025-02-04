@@ -1,12 +1,15 @@
 ---
 title: "How I improved my typing speed and how you can too!"
-date: 2019-11-25T23:18:05+05:30
-draft: false
-featured_image: "https://miro.medium.com/max/8690/0*xc-UnTMdAKK0ZfZ3"
-
-tags: ['natural language processing']
-categories: ['NLP']
+date: "2019-12-01"
+summary: "Factors which affect your typing speed"
+description: "Factors which affect your typing speed"
 toc: true
+readTime: true
+autonumber: false
+math: true
+tags: ['personal website']
+showTags: false
+hideBackToTop: false
 ---
 
 *I was able to get hold of the data used in the following analysis, courtesy of Noah, creator and maintainer of [TypeRacer Data, a third party information center for TypeRacer.](http://www.typeracerdata.com/about)*
@@ -17,7 +20,7 @@ just touch typing and finger placement.
 
 Most of the time I am asked this question — **how did I improve my typing speed to achieve a speed of over 100 words per minute?**
 
-### Consistency is Key
+## Consistency is Key
 
 In October 2015, in my endeavour to improve my typing speed I stumbled upon
 [Typeracer](https://play.typeracer.com/), a website dedicated to type racing
@@ -26,12 +29,12 @@ generating a gold mine of data and I would be a contributor of the same. Since
 then I have completed more than 4000 races in the past 3 years and my
 improvement over time is evident from the following graph —
 
-{{< figure src="https://cdn-images-1.medium.com/max/1000/1*YdJ0wkPxvAUrmzVn4WtioQ.png" title="Scatter plot of all my races" >}}
+![scatter-plot-races](https://cdn-images-1.medium.com/max/1000/1*YdJ0wkPxvAUrmzVn4WtioQ.png "Scatter plot of all my races")
 
 I started with a mere 58 Words Per Minute (WPM) in 2015 and now average over 95
 WPM with a highest score of 128 WPM.
 
-{{< figure src="https://cdn-images-1.medium.com/max/750/1*TgyRGSSQm7MUVGegjFNBEA.png" title="Number of races played across the years" >}}
+![number_races_played](https://cdn-images-1.medium.com/max/750/1*TgyRGSSQm7MUVGegjFNBEA.png "Number of races played across the years")
 
 I completed over 3000 races in 2016 and 2017 combined. This number might be
 dwarfed by other people on the website easily, but for me it was the sheer
@@ -39,9 +42,9 @@ quantity and consistency that allowed me to raise my bar higher.
 
 <br> 
 
-### Progress over time
+## Progress over time
 
-{{< figure src="https://cdn-images-1.medium.com/max/1500/1*45rl-A0smsxHhSiw_vykvw.png" title="Box plot of all my races over time" >}}
+![number_races_played](https://cdn-images-1.medium.com/max/1500/1*45rl-A0smsxHhSiw_vykvw.png "Box plot of all my races over time")
 
 According to my race data, I used to play 125 races in a month on an average
 which helped me register the most frequent words in my muscle memory. 
@@ -53,9 +56,9 @@ my typing game.
 
 2018 is an exception since the sample space over which the graph has been plotted is way less than the other years. As you can see in the “Count vs Year” graph above, I played only 250 games in the year of 2018.
 
-### About the data
+## About the data
 
-{{< figure src="https://cdn-images-1.medium.com/max/750/1*nZeo7p0OtZYLV-t7c7vDag.png" title="Texts added gradually over time" >}}
+![texts-added-gradually-over-time](https://cdn-images-1.medium.com/max/750/1*nZeo7p0OtZYLV-t7c7vDag.png "Texts added gradually over time")
 
 There are over 5200 active texts site wide used in the races. Most of these
 texts are
@@ -106,7 +109,7 @@ has the **least top score** of **151 WPM** achieved on is —
 
 This led me to the question —
 
-#### What influences our speed while typing?
+## What influences our speed while typing?
 
 While external factors (keyboard, finger position, touch typing, wrist posture
 etc.) do contribute in helping improve our speeds, we’ll focus on the text this
@@ -118,7 +121,7 @@ increased number of **punctuation, capital letters and length of text.**
 The following graph shows a change in difficulty rating across the above
 mentioned three factors on a subset of texts which I have typed.
 
-{{< figure src="https://cdn-images-1.medium.com/max/1000/1*YVJXxXC6DC3Au0Ssmt7u9A.png" title="Speed(WPM) across length of text, number of punctuations and capital letters in it." >}}
+![speed-across-length](https://cdn-images-1.medium.com/max/1000/1*YVJXxXC6DC3Au0Ssmt7u9A.png "Speed(WPM) across length of text, number of punctuations and capital letters in it.")
 
 The above graph makes it clear that — 
 
@@ -132,7 +135,7 @@ bound to reduce your speed.
 1.  Similarly, capital case letters require the use of “Shift” or “Caps” which
 causes a person to slow down relatively. 
 
-#### Can we predict the typing speed based only on the text?
+## Can we predict the typing speed based only on the text?
 
 Now that we’ve established some features which directly affect typing speed, we
 can use those in conjunction with the sentence itself to predict the typing
@@ -166,13 +169,13 @@ Using Logistic Regression I managed to achieve an accuracy of 49.8% which is pre
 
 The whole point of doing this exercise is to explore what kind of features would be useful to evaluate a person’s typing speed. With the kind of accuracy achieved using the current features and model, it seems we would require more feature engineering and a better model to get a descent accuracy score.
 
-### Conclusion
+## Conclusion
 
 1. We learnt how consistent practising can help improve your typing speed.
 2. We also saw the effects of punctuation, capital case and length of text on the overall typing speed.
 3. And we explored whether these features would be useful in a simple classification task.
 
-### Future Scope
+## Future Scope
 
 Better features can be extracted by running the sentences through an LSTM to obtain intermediary features. This will allow us to include word order in the text as a feature. This will help the model to learn frequent patterns of words which appear in conjunction.
 

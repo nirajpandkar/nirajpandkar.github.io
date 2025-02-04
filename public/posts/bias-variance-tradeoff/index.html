@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+<link rel="icon" type="image/ico" href="http://localhost:1313//favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313//favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="http://localhost:1313//android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313//apple-touch-icon.png">
+
+<meta name="description" content="What kind of bias-variance tradeoff do financial instituations perform?"/>
+
+<title>
+    
+    Bias vs Variance Tradeoff | Niraj Pandkar
+    
+</title>
+
+<link rel="canonical" href="http://localhost:1313/posts/bias-variance-tradeoff/"/>
+
+<meta property="og:url" content="http://localhost:1313/posts/bias-variance-tradeoff/">
+  <meta property="og:site_name" content="Niraj Pandkar">
+  <meta property="og:title" content="Bias vs Variance Tradeoff">
+  <meta property="og:description" content="What kind of bias-variance tradeoff do financial instituations perform?">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-02-04T00:00:00+00:00">
+    <meta property="article:tag" content="Back-to-Basic">
+    <meta property="article:tag" content="Machine Learning">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.a904013acd8e3bd04ce56a64a8fe5525fd5f738ad6caa0bfbcbe39a8d7ed932d.css" media="all">
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="light">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">
+        <a href="http://localhost:1313/">Niraj Pandkar</a>
+    </h1>
+
+    <div class="flex">
+        
+
+        
+        
+      
+        <p class="small ">
+            <a href="/" >
+                /home
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/posts" >
+                /posts
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/about" >
+                /about
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+
+
+
+
+<div  class="autonumber" >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">Bias vs Variance Tradeoff</h1>
+    
+    <p class="single-summary">What kind of bias-variance tradeoff do financial instituations perform?</p>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2025-02-04T00:00:00&#43;00:00">February 4, 2025</time>
+      
+
+      
+      &nbsp; · &nbsp;
+      2 min read
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+  <aside class="toc">
+    <p><strong>Table of contents</strong></p>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-bias-and-variance">What is bias and variance</a></li>
+    <li><a href="#bias-variance-tradeoff-in-financial-forecasting">Bias-variance tradeoff in financial forecasting</a>
+      <ul>
+        <li><a href="#high-bias-pitfalls">High bias pitfalls</a></li>
+        <li><a href="#high-variance-risks">High variance risks</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-can-we-lower-bias-and-variance-in-these-cases">How can we lower bias and variance in these cases?</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </aside>
+  
+
+  
+
+  <div class="single-content">
+    <h2 class="heading" id="what-is-bias-and-variance">
+  What is bias and variance
+  <a href="#what-is-bias-and-variance">#</a>
+</h2>
+<p>Variance refers to the error introduced by the model’s sensitivity to small fluctuations in the dataset i.e. how “over-specialized” is your classifier to a particular training set (overfitting).</p>
+<p>Bias is when the classifier is biased towards a particular kind of solution i.e. high bias can cause the model to miss the relevant relations between features and target outputs (underfitting).</p>
+<p>In other words, high bias models are over-simplistic (linear models) while high variance models are complex and try to fit to the noise in the training data (high-degree polynomial models).</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="tsitsimis-multiple-degrees.png" src="/posts/images/tsitsimis-multiple-degrees.png" width="1509px" height="465px">
+    </div>
+
+    
+    <div class="caption-container">
+        <figcaption> Degree of complexity in models [1] </figcaption>
+    </div>
+    
+</figure>
+</p>
+<p>In the above diagram, degree 3 polynomial barealy explains the distribution of data thus showing high bias. On the other hand, degree 30 polynomial is over fitted to the noise in the dataset thus becoming sensitive to smallest fluctuations in the testing data.</p>
+<p>So how do we select a model with low bias and low variance?</p>
+<h2 class="heading" id="bias-variance-tradeoff-in-financial-forecasting">
+  Bias-variance tradeoff in financial forecasting
+  <a href="#bias-variance-tradeoff-in-financial-forecasting">#</a>
+</h2>
+<p>Let’s take the example of financial forecasting models to see the either extremes of high bias and high variance. We’ll also look at some techniques to balance out this see saw.</p>
+<h3 class="heading" id="high-bias-pitfalls">
+  High bias pitfalls
+  <a href="#high-bias-pitfalls">#</a>
+</h3>
+<p>Oversimplified models like linear regression can provide conservative market predictions -</p>
+<ul>
+<li>Fail to capture nonlinear relationships (e.g., geopolitical impacts on oil prices)</li>
+<li>Systematically underestimate volatility during market shocks</li>
+<li>Miss profitable opportunities by ignoring emerging trends</li>
+</ul>
+<h3 class="heading" id="high-variance-risks">
+  High variance risks
+  <a href="#high-variance-risks">#</a>
+</h3>
+<p>Complex models like deep learning neural networks may -</p>
+<ul>
+<li>Overfit to noise in historical data (e.g., 2008 crisis patterns)</li>
+<li>Generate unstable predictions sensitive to minor data fluctuations</li>
+<li>Fail during structural breaks (pandemic market behavior)</li>
+</ul>
+<h2 class="heading" id="how-can-we-lower-bias-and-variance-in-these-cases">
+  How can we lower bias and variance in these cases?
+  <a href="#how-can-we-lower-bias-and-variance-in-these-cases">#</a>
+</h2>
+<p>The following two strategies amongst several can help optimize this tradeoff -</p>
+<ol>
+<li><strong>Ensemble methods</strong> - Reduces bias through model diversity while lowering variance via aggregated predictions</li>
+<li><strong>Regularization (L1/L2)</strong> - Adding a regularization penalty significantly decreases variance but may slightly increase bias.</li>
+</ol>
+<h2 class="heading" id="references">
+  References
+  <a href="#references">#</a>
+</h2>
+<ol>
+<li><a href="https://www.kdnuggets.com/2021/08/visualizing-bias-variance.html">https://www.kdnuggets.com/2021/08/visualizing-bias-variance.html</a></li>
+</ol>
+
+    
+  </div>
+
+  
+
+
+  
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flex">
+
+        <div class="single-pagination-prev">
+            
+            <div class="single-pagination-container-prev">
+                <div class="single-pagination-text">←</div>
+                <div class="single-pagination-text">
+                    <a href="/posts/automatic-code-documentation-llm/">
+                        Automatic code documentation using LLM
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </main>
+  </div>
+
+  <footer>
+    
+
+    
+    <p>Powered by
+        <a href="https://gohugo.io/">Hugo</a>
+        and
+        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+    </p>
+    
+    
+    
+
+
+  </footer>
+
+  
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+  
+
+</body>
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+<script defer src="/js/copy-code.js"></script>
+</html>

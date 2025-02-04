@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+<link rel="icon" type="image/ico" href="http://localhost:1313//favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313//favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="http://localhost:1313//android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313//apple-touch-icon.png">
+
+<meta name="description" content="Using staged differences in git to automatically document code"/>
+
+<title>
+    
+    Automatic code documentation using LLM | Niraj Pandkar
+    
+</title>
+
+<link rel="canonical" href="http://localhost:1313/posts/automatic-code-documentation-llm/"/>
+
+<meta property="og:url" content="http://localhost:1313/posts/automatic-code-documentation-llm/">
+  <meta property="og:site_name" content="Niraj Pandkar">
+  <meta property="og:title" content="Automatic code documentation using LLM">
+  <meta property="og:description" content="Using staged differences in git to automatically document code">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-19T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-01-19T00:00:00+00:00">
+    <meta property="article:tag" content="Personal Project">
+    <meta property="article:tag" content="Llm">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.a904013acd8e3bd04ce56a64a8fe5525fd5f738ad6caa0bfbcbe39a8d7ed932d.css" media="all">
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+<body class="light">
+
+  <div class="content">
+    <header>
+      
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">
+        <a href="http://localhost:1313/">Niraj Pandkar</a>
+    </h1>
+
+    <div class="flex">
+        
+
+        
+        
+      
+        <p class="small ">
+            <a href="/" >
+                /home
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/posts" >
+                /posts
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/about" >
+                /about
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+    </header>
+
+    <main class="main">
+      
+
+
+
+
+
+
+
+<div  class="autonumber" >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">Automatic code documentation using LLM</h1>
+    
+    <p class="single-summary">Using staged differences in git to automatically document code</p>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2025-01-19T00:00:00&#43;00:00">January 19, 2025</time>
+      
+
+      
+      &nbsp; · &nbsp;
+      2 min read
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+  <aside class="toc">
+    <p><strong>Table of contents</strong></p>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#core-components">Core Components</a>
+      <ul>
+        <li><a href="#pre-add-hook-implementation">Pre-add hook implementation</a></li>
+        <li><a href="#llm-service-tbd">LLM Service (TBD)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+  
+
+  
+
+  <div class="single-content">
+    <blockquote>
+<p>Everything is work-in-progress. I&rsquo;m documenting my thoughts and implementation as I go.</p>
+</blockquote>
+<h1 class="heading" id="the-idea">
+  The idea
+  <a href="#the-idea">#</a>
+</h1>
+<p>I first heard of this idea from Andriy Burkov - <a href="https://x.com/burkov/status/1877117229206221076">https://x.com/burkov/status/1877117229206221076</a></p>
+<p>Instead of spending manual efforts documenting your code, let LLMs look at your git diff to generate and add documentation for you.</p>
+<p>These are the outlined steps by Andriy -</p>
+<ol>
+<li>New staged changes (<code>git add</code>) trigger an LLM call that identifies which Markdown files in the documentation directory are affected by the staged diff (<code>git diff --cached</code>).</li>
+<li>Another LLM call receives both the documentation content and the staged diff, generating updated Markdown content.</li>
+<li>The developer reviews both the code changes and documentation updates in the staging area, then creates a commit (<code>git commit</code>) to approve them together.</li>
+</ol>
+<p>My aim is to implement this functionality as a weekend project in order to get my hands dirty with LLMs.</p>
+<h1 class="heading" id="system-architecture">
+  System architecture
+  <a href="#system-architecture">#</a>
+</h1>
+<p>The solution will be implemented as a Git pre-commit hook that processes documentation updates automatically.</p>
+<h2 class="heading" id="core-components">
+  Core Components
+  <a href="#core-components">#</a>
+</h2>
+<ul>
+<li>Pre-add hook script</li>
+<li>LLM integration service
+<ul>
+<li>Diff analysis module (Identifying updates)</li>
+<li>Documentation update handler (Updating docs)</li>
+</ul>
+</li>
+</ul>
+<h3 class="heading" id="pre-add-hook-implementation">
+  Pre-add hook implementation
+  <a href="#pre-add-hook-implementation">#</a>
+</h3>
+<ol>
+<li>Create the Script</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#888;font-weight:bold">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#888;font-weight:bold"></span><span style="color:#888;font-style:italic"># .git/hooks/pre-add</span>
+</span></span><span style="display:flex;"><span>python3 run_doc_update.py
+</span></span></code></pre></div><ol start="2">
+<li>Make Script Executable</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x .git/hooks/pre-add
+</span></span></code></pre></div><ol start="3">
+<li>Create Git Alias</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git alias.udpate-and-add <span style="color:#666;font-style:italic">&#39;!.git/hooks/pre-add; git add &#34;$@&#34;&#39;</span>
+</span></span></code></pre></div><h4 class="heading" id="usage">
+  Usage
+  <a href="#usage">#</a>
+</h4>
+<p>Instead of using git add, you&rsquo;ll use:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git udpate-and-add &lt;files&gt;
+</span></span></code></pre></div><p><strong>Note</strong>: This would allow us to selectively use this doc auto-update functionality. Use <code>git update-and-add</code> when you want automatic updates. Use <code>git add</code> when you want to change the auto documentation yourself and otherwise.</p>
+<h3 class="heading" id="llm-service-tbd">
+  LLM Service (TBD)
+  <a href="#llm-service-tbd">#</a>
+</h3>
+<p>There are two places where an LLM will be used.</p>
+<p>Firstly, to identify the documents across the repository which need updation. This will be determined by comparing the staged git diff WITH all the markdown files in the repo.</p>
+<p>And then, once we find the target documentation, to update the documentation within after corroborating with the staged diff.</p>
+<h4 class="heading" id="diff-analysis-module">
+  Diff analysis module
+  <a href="#diff-analysis-module">#</a>
+</h4>
+<h4 class="heading" id="documentation-udpate-handler">
+  Documentation udpate handler
+  <a href="#documentation-udpate-handler">#</a>
+</h4>
+<h1 class="heading" id="challenges">
+  Challenges
+  <a href="#challenges">#</a>
+</h1>
+<ol>
+<li>The staged diff corresponds to multiple changes. This would require doc updates in multiple files. How can the LLM identify which part of the diff corresponds with which particular documentation?</li>
+</ol>
+<h1 class="heading" id="limitations">
+  Limitations
+  <a href="#limitations">#</a>
+</h1>
+<ol>
+<li>Currently, the LLM will only look at the markdown files in the same directory as the staged diff. So the identification part will be implemented later. Either that or keep only one markdown file as the documentation across the repo.</li>
+</ol>
+
+    
+  </div>
+
+  
+
+
+  
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flex">
+
+        <div class="single-pagination-prev">
+            
+            <div class="single-pagination-container-prev">
+                <div class="single-pagination-text">←</div>
+                <div class="single-pagination-text">
+                    <a href="/posts/pgadmin-docker/">
+                        How to use a Dockerized PgAdmin and make user management easy
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+            <div class="single-pagination-container-next">
+                <div class="single-pagination-text">
+                    <a href="/posts/bias-variance-tradeoff/">
+                        Bias vs Variance Tradeoff
+                    </a>
+                </div>
+                <div class="single-pagination-text">→</div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </main>
+  </div>
+
+  <footer>
+    
+
+    
+    <p>Powered by
+        <a href="https://gohugo.io/">Hugo</a>
+        and
+        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
+    </p>
+    
+    
+    
+
+
+  </footer>
+
+  
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css">
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body);"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false }
+      ]
+    });
+  });
+</script>
+  
+
+</body>
+
+<script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+<script defer src="/js/copy-code.js"></script>
+</html>

@@ -1,11 +1,16 @@
 ---
 title: "Automatic code documentation using LLM"
-date: 2025-01-19
-draft: false
-
-tags: ['personal project', 'llm']
-categories: ['Personal Project']
+date: "2025-01-19"
+summary: "Using staged differences in git to automatically document code"
+description: "Using staged differences in git to automatically document code"
 toc: true
+readTime: true
+autonumber: true
+math: true
+tags: ['personal project', 'llm']
+showTags: false
+hideBackToTop: false
+draft: true
 ---
 > Everything is work-in-progress. I'm documenting my thoughts and implementation as I go.
 
