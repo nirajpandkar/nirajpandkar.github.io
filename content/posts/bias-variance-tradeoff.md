@@ -1,8 +1,8 @@
 ---
 title: "Bias vs Variance Tradeoff"
 date: "2025-02-04"
-summary: "What kind of bias-variance tradeoff do financial instituations perform?"
-description: "What kind of bias-variance tradeoff do financial instituations perform?"
+summary: "What kind of bias-variance tradeoff do financial institutions perform?"
+description: "What kind of bias-variance tradeoff do financial institutions perform?"
 toc: true
 readTime: true
 autonumber: true
