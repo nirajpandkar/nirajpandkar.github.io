@@ -1,14 +1,19 @@
 ---
 title: "How to use a Dockerized PgAdmin and make user management easy"
-date: 2019-12-15T17:12:39+05:30
-draft: false
-
-featured_image: "/images/pgadmin-docker.png"
-
-tags: ['docker', 'pgadmin']
-categories: ['DevOps']
+date: "2019-12-15"
+summary: "Using a Docker image created for pgAdmin"
+description: "Using a Docker image created for pgAdmin "
 toc: true
+readTime: true
+autonumber: true
+math: true
+tags: ['personal website']
+showTags: false
+hideBackToTop: false
 ---
+
+*NOTE: This article was written when I was still working in Riverus.*
+![img](/images/pgadmin-docker.png#light "PgAdmin")
 
 We interact with databases almost all day long - consuming video content on the largest streaming service, chatting with your friend on the most widely used chat application or just poking your friend on the most powerful social networking site. 
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Niraj Pandkar</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content in Home on Niraj Pandkar</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 04 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bias vs Variance Tradeoff</title>
+      <link>http://localhost:1313/posts/bias-variance-tradeoff/</link>
+      <pubDate>Tue, 04 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/bias-variance-tradeoff/</guid>
+      <description>What kind of bias-variance tradeoff do financial instituations perform?</description>
+    </item>
+    <item>
+      <title>How to use a Dockerized PgAdmin and make user management easy</title>
+      <link>http://localhost:1313/posts/pgadmin-docker/</link>
+      <pubDate>Sun, 15 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/pgadmin-docker/</guid>
+      <description>Using a Docker image created for pgAdmin</description>
+    </item>
+    <item>
+      <title>How I improved my typing speed and how you can too!</title>
+      <link>http://localhost:1313/posts/typeracer-analysis/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/typeracer-analysis/</guid>
+      <description>Factors which affect your typing speed</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;I write about current ongoings in AI, industry news and topics that I find interesting in my AI newsletter - &lt;a href=&#34;nirajpandkar.substack.com&#34;&gt;The Layman&amp;rsquo;s Guide to AI&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;In 2021, my friend and I built a Cartoonizer app which turns images and videos into animated pictures/cartoons. We gained 12,000 users in the first week and served it to 150,000 unique users till 2023. I&amp;rsquo;ve written about the tech in this &lt;a href=&#34;https://towardsdatascience.com/how-we-built-an-inexpensive-scalable-architecture-to-cartoonize-the-world-8610050f90a0&#34;&gt;Medium post&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;In the final year of my Master&amp;rsquo;s, I set out with a mission to predict and construct a person&amp;rsquo;s face from only a DNA sample to help criminal investigations. All the significant efforts have been published in my IEEE paper - &lt;a href=&#34;https://ieeexplore.ieee.org/document/10102080&#34;&gt;3D Facial Biometric Verification Using a DNA Sample for Law Enforcement Applications&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
