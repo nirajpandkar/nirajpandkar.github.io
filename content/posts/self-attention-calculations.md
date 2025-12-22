@@ -104,9 +104,14 @@ And when you matrix multiply the input embeddings (dimension: 3x4) with each of 
 
 Us! It’s a hyper parameter which we choose before training.
 
-Usually, the word embeddings for a word are represented by a vector of 512 floating-point numbers. That puts a lot of burden on the GPU. That’s why we choose to represent each word in a lower dimensionality. In the Transformer paper, they have chosen this to be 64. 
+Let's say, the word embeddings for a word are represented by a vector of 512 floating-point numbers. After a linear projection through these trainable parameters, every word is now represented by 64 floating-point numbers. 
 
-We can say that the input embeddings are linearly projected into a lower dimensionality. In this case, every word is now represented by three numbers instead of 4.
+Since matrix multiplication can cater to multiple heads at once, we only control a variable `d_model` (model dimension) which is essentially the number of features per word. And the number of heads `num_heads` are chosen such that `d_model` is divisible by it. So that the intermediate projection dimension `d_k` becomes 
+```
+d_k = d_model // num_heads
+```
+
+We can say that the input embeddings `d_model` are linearly projected into a lower dimensionality `d_k`. In our case, for simplicity sake this is not true. The input embedding per word (`d_model`) is a vector of 4 numbers and is being projected into a lower dimension of 3 (`d_k`). 
 
 ### So how many queries does the model ask?
 
