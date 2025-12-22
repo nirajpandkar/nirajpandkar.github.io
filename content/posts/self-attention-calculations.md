@@ -13,17 +13,14 @@ hideBackToTop: false
 draft: false
 ---
 
-# Self attention with toy example
 
-Come with me on a visual understanding of the self-attention calculations that are at the heart of transformers. This article is pretty niche and expands on the attention mechanism - 
+Come with me on a visual understanding of the self-attention calculations that are at the heart of transformers. This article is pretty niche and expands only on the attention formula - 
 
 > Attention(Q,K,V) = softmax(Q K^T / sqrt(d_k)) V
-> 
 
-We will deconstruct every letter in the above formula till you understand the semantic meaning of what’s going on behind the scene. My primary goal is to provide an intuition on how the self-attention mechanism helps relate two words in a sentence with a follow-along example sentence -  
+We will deconstruct every letter in the above formula till you understand the semantic meaning of what’s going on behind the scene. My primary goal is to provide an intuition on how the self-attention mechanism helps relate words in a sentence with a follow-along example sentence -  
 
 > The fox jumps.
-> 
 
 Prerequities - 
 
@@ -31,70 +28,77 @@ Prerequities -
 2. Matrix multiplication
 3. Understanding of word embeddings; one-hot encoding
 
-When I embarked on this journey, the calculations seemed pretty simple but abstract. I wanted to understand what’s going on underneath. Some assumptions and the reasons for the assumptions - 
 
-1. The calculation will consider only one sentence (Literally 1 batch with batch size = 1)
-    1. The powerhouse of transformers is matrix multiplication.
-    2. It is capable of catering to hundreds of sentences in parallel.
-2. We will consider only one “head”. (More on this later; it’s okay if you don’t understand it right now)
-    1. Matrix multiplication, being the superpower it is, can cater to calculations for multiple heads at once. 
-3. We will consider the most primitive form of word embeddings - one-hot encoding.
+## Motivation
+
+When I embarked on this journey, the calculations seemed pretty simple but abstract. I wanted to understand what’s going on underneath. 
+
+Some assumptions - 
+
+- **The calculation will consider only one sentence.** Though the powerhouse of transformers is matrix multiplication. It is capable of catering to hundreds of sentences in parallel.
+- **We will consider only one “head”** (More on this later; it’s okay if you don’t understand it right now). Matrix multiplication, being the superpower it is, can cater to calculations for multiple heads at once as well.
+- **We will consider the most primitive form of word embeddings - one-hot encoding.**
 
 Let’s get on with it 😄
 
-# The Formula
+## The Formula
 
 > Attention(Q,K,V) = softmax(Q K^T / sqrt(d_k)) V
-> 
 
-![attention_calculation.png](./images/attention_calculation.png)
+If you have tried to read about transformers/attention anywhere on the web, you must have seen the following famous info graphic. This definitely helps you in the initial 40% and then at least I got stuck. 
 
-If you have tried to read about transformers/attention anywhere on the web, you must have seen this famous info graphic. This definitely helps you in the initial 40% and then at least I got stuck. I wanted more behind the scenes with actual matrix results shown with a toy example. Your wait is over 😄
+I wanted more behind the scenes with actual matrix results shown with a toy example.
+
+Your wait is over!
+
+![attention_calculation.png](./images/attention_calculation.png "Infographic from [Jay Alammar's article](https://jalammar.github.io/illustrated-transformer/)")
+<figure>
+  <img src="./images/attention_calculation.png" alt="Attention calculation" style="width:100%">
+  <figcaption>Infographic from [Jay Almar's article](https://jalammar.github.io/illustrated-transformer/)</figcaption>
+</figure>
+
+
 
 Let’s consider the following sentence with one-hot encodings for each word. 
 
-![Screenshot from 2025-12-17 19-43-50.png](./images/Screenshot_from_2025-12-17_19-43-50.png)
+> The fox jumps.
 
-Pretty simple. But we need Q, K and V matrices. How do we get them from these input embeddings? And what the hell are they?
+![Screenshot from 2025-12-17 19-43-50.png](./images/toy_embeddings.png)
 
-# Q, K and V
+Pretty simple. As you might have observed, I have added a slight offset to make the calculations non-orthogonal. 
 
-> The **fox** jumps
-> 
+But we need Q, K and V matrices. How do we get them from these input embeddings?
 
-*Query*: What does the fox do?
+## Intuition behind Q, K and V matrices
 
-*Key*: All the words in the sentences
-
-*Value:* The representation of each word (one hot encoding from above)
+![picture](./images/Screenshot%20from%202025-12-21%2017-33-37.png)
 
 As the word attention elicits, we focus on each word of the sentence one by one and ask ourselves - “how does this word relate to every other word in the sentence?”
 
-For example, if we focus on “fox”, two questions come to mind - 
+For example, if we focus on “fox”, we can formulate the following questions - 
 
-1. Does the fox “the”?
-2. Does the fox “jumps”?
+> What does the fox do?
 
-Obviously the query #1 should garner lower attention score than #2. And I’m saying lower (and not zero) because of the question being asked here. If my query changed to the following, your answer would change - 
+Obviously your attention goes to the key "jump" and hence it should have a higher attention score. And I’m saying higher because of the question being asked here. If my query changed to the following, your answer would change - 
 
-1. Is “the” the article to fox?
-2. Is “jumps” the article to fox?
+> What is the article used for fox?
 
-Now obviously, #1 should garner a higher attention score than #2!
+Now we should get a higher attention score for the key "the".
 
-### Who controls the “query”?
+### Who controls the query?
 
 Nobody.
 
-It’s learned. It’s implicit. It is something we let the model learn itself. Just like how in an Imagenet model, you don’t explicitly specify the features it should consider to identify whether the given image is cat or dog, you don’t tell the model what query to ask.
+It’s learned. It’s implicit. It is something we let the model learn itself. Just like how in an ImageNet model, you don’t explicitly specify the features it should consider to identify whether the given image is cat or dog, you don’t tell the model what query to ask.
 
 And the model “learns” to ask these queries by multiple iterations of training loops. The trainable parameters look like the following - 
 
-![Screenshot from 2025-12-17 19-45-31.png](./images/Screenshot_from_2025-12-17_19-45-31.png)
+![](./images/projection_dim.png)
 
-And when you send the input embeddings through each of these trained matrices, you get Q, K and V matrices! -
 
-![Screenshot from 2025-12-17 19-48-05.png](./images/Screenshot_from_2025-12-17_19-48-05.png)
+And when you matrix multiply the input embeddings (dimension: 3x4) with each of these trained matrices (dimension: 4x3), you get Q, K and V matrices! -
+
+![Screenshot from 2025-12-17 19-48-05.png](./images/qkv.png)
 
 ### Who decides the dimensions of these trainable parameters?
 
@@ -104,58 +108,74 @@ Usually, the word embeddings for a word are represented by a vector of 512 float
 
 We can say that the input embeddings are linearly projected into a lower dimensionality. In this case, every word is now represented by three numbers instead of 4.
 
-### So how many queries does the model ask? Isn’t it infinite?
+### So how many queries does the model ask?
 
 That’s where the concept of “heads” come into being. Each “head” asks a different question. Now when you hear “multi-headed” attention (MHA), that’s what it means! 
 
 This is a hyper parameter of the model that the user controls. We can control how many heads/queries the model asks!
 
-This article will ask only one quesiton. Again, we don’t control what question is being asked, but how many questions should be asked in order for the model to have a better semantic understanding of the whole sentence.
+In this article, we are essentially asking only one question. Again, we don’t control what question is being asked, but how many questions should be asked in order for the model to have a better semantic understanding of the whole sentence.
 
 ## How are relations between the words calculated then?
 
 Dot product!
 
-Similarity between word embeddings have been calculated using dot products since the beginning of time. Cosine simialrity is another method.
+A dot product measures how aligned a "query" vector is to a "key" vector. In other words, it calculates the similarity score between two words.
 
-And the most efficient way to calculate dot product is via matrix multplication.
+Larger dot product -> Higher compatibility -> Higher attention
 
 ### Unscaled attention score
 
 > Attention(Q,K,V) = softmax(**Q K^T** / sqrt(d_k)) V
 
-![Screenshot from 2025-12-17 19-53-39.png](./images/Screenshot_from_2025-12-17_19-53-39.png)
+Here we are multiplying the query and key vectors by taking a transpose of the key vector to match dimensions.
 
-The numbers in this toy example are very small. But in reality, these mutiplications can compound quickly and cause Floating Point Overflows.
+The following are raw unscaled similarity scores amongst the words. 
+![Screenshot from 2025-12-17 19-53-39.png](./images/unscaled_attention.png)
 
 ### Scaled attention scores
 
 > Attention(Q,K,V) = softmax(**Q K^T / sqrt(d_k)**) V
 
-That’s why we scale them down by dividing by the square root of our projection dimension (3). It’s chosen by the author of the paper and worked in their favor. We can perhaps choose our own.
+
+The numbers in this toy example are very small. But in reality, these multiplications and additions can compound quickly and result in larger magnitude of numbers. This makes the softmax outputs extremely peaky (one position gets almost all weight) and yields tiny gradients. Dividing by sqrt(d_k) keeps the logits in a stable numeric range so softmax behaves well.
+
+That’s why we scale them down by dividing by the square root of the projection dimension. Vaswani et al. chose it because it was simple and kept the variance of the dot product roughly constant. 
 
 
-![Screenshot from 2025-12-17 19-56-27.png](./images/Screenshot_from_2025-12-17_19-56-27.png)
+![Screenshot from 2025-12-17 19-56-27.png](./images/scaled_attention.png)
 
-But these are raw attention scores and doesn’t give us a relative score of how each word belongs to the word “fox”, for example.
 
 ### Attention score probabilities
 
 > Attention(Q,K,V) = **softmax(Q K^T / sqrt(d_k))** V
 
-That’s why we put them through the softmax funciton - 
+But these are raw attention scores and they don't give us a relative score of how each word belongs to the word “fox”, for example.
 
-![Screenshot from 2025-12-17 19-57-08.png](./images/Screenshot_from_2025-12-17_19-57-08.png)
+Softmax turns the raw dot‑product logits into a probability distribution over keys: non‑negative weights that sum to 1.
 
-The scores above are “by how much” the keys (X axis) affect the query words (y axis). Which is why the next step is to multiply the scores with “values”.
+![Screenshot from 2025-12-17 19-57-08.png](./images/attention_probs.png)
 
+The scores above are “by how much” the keys (X axis) affect the query words (y axis).
 ### Context vectors
 
 > Attention(Q,K,V) = **softmax(Q K^T / sqrt(d_k)) V**
 
-We started with arbitrary one hot encondings but very coincidentally, you can see that fox and jumps do have a correlation 😉. 
+V contains the actual content to be read. Multiplying the weights by V turns those weights into concrete context vectors via a weighted sum.
+
+We started with arbitrary one hot encodings but very coincidentally, you can see that fox and jumps do have a correlation. 
 
 
-![Screenshot from 2025-12-17 20-00-51.png](./images/Screenshot_from_2025-12-17_20-00-51.png)
+![Screenshot from 2025-12-17 20-00-51.png](./images/context_vectors.png)
 
-And now we just sum up all these scores up together for each word which becomes our final attention score for each word.
+## Conclusion
+
+This article should have given you a peek inside the scaled dot product calculations for attention. 
+
+The concrete context vectors are further multiplied by another trainable parameter (W_o) to bring it back into their original dimension of 3x4. But this is outside the scope of this article.
+
+In the next post, I will talk about the next few blocks that these context vectors go through - **feed forward neural network and positional encoding.**
+
+---
+
+If you have any more questions regarding this article, feel free to [reach out to me on X](https://x.com/Niraj_pandkar). And don't forget to check out the newsletter - https://nirajpandkar.substack.com!
