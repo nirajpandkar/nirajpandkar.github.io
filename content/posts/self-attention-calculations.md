@@ -1,5 +1,5 @@
 ---
-title: "Self attention with toy example"
+title: "Attention Mechanism Calculations with a Toy Example"
 date: "2025-12-19"
 summary: "Visual explanation of attention mechanism"
 description: "Visual explanation of attention mechanism"
