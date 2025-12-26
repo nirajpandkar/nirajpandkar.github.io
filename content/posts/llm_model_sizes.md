@@ -43,7 +43,7 @@ I decided to calculate the number of parameters in a simple feed forward neural 
 
 In this case the total number of parameters are - 
 
-1. 10*8 + 8*5 + 5*2 (weights across the neurons in each layer since fully connected)
+1. 10\*8 + 8\*5 + 5*2 (weights across the neurons in each layer since fully connected)
 2. 8 + 5 + 2 (bias; only for hidden and output layers)
 
 Totalling to 145 weights! (or as we call them parameters). 
@@ -73,7 +73,7 @@ The model first gets loaded into RAM. It only gets loaded to the GPU when we exp
 
 On the contrary when you load a quantized model, majority of the model parameters get loaded into GPU VRAM and part of it gets loaded into RAM. 
 
-Quantization is **a** model compression technique that reduces a LLM’s size and speeds up inference by converting its high-precision numerical weights (like 32-bit floats) to lower-precision formats (like 8-bit or 4-bit integers). In our case, it resulted in an almost ~3.5x reduction in size down to 2.8 GB!
+Quantization is a model compression technique that reduces a LLM’s size and speeds up inference by converting its high-precision numerical weights (like 32-bit floats) to lower-precision formats (like 8-bit or 4-bit integers). In our case, it resulted in an almost ~3.5x reduction in size down to 2.8 GB!
 
 ```python
 quantization_config = BitsAndBytesConfig(
