@@ -3,11 +3,11 @@ languageCode = 'en-us'
 title = 'Niraj Pandkar'
 theme = 'typo'
 
-[taxonomies]
-tag = 'tags'
-
 # Google analytics code
 googleAnalytics = "G-QZXL401DJP"
+
+[taxonomies]
+tag = 'tags'
 
 [params]
 # Meta description
