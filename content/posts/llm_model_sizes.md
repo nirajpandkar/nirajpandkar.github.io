@@ -113,3 +113,5 @@ After quantization to 8 bits, some of the fp32 weights are converted to int8 wei
 ---
 
 You can find the Jupyter notebook for the model size exploration on my Github - [model_size_exploration.ipynb](https://github.com/nirajpandkar/transformers-from-scratch/blob/master/notebooks/model_size_exploration.ipynb).
+
+If you have any more questions regarding this article, feel free to [reach out to me on X](https://x.com/Niraj_pandkar). And don't forget to check out the newsletter - https://nirajpandkar.substack.com!

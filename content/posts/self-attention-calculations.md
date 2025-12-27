@@ -12,7 +12,7 @@ showTags: false
 hideBackToTop: false
 draft: false
 ---
-
+---
 
 Come with me on a visual understanding of the self-attention calculations that are at the heart of transformers. This article is pretty niche and expands only on the attention formula - 
 
@@ -182,5 +182,7 @@ The concrete context vectors are further multiplied by another trainable paramet
 In the next post, I will talk about the next few blocks that these context vectors go through - **feed forward neural network and positional encoding.**
 
 ---
+
+The code for attention calculation is in this [Jupyter notebook](https://github.com/nirajpandkar/transformers-from-scratch/blob/master/notebooks/self-attention.ipynb).
 
 If you have any more questions regarding this article, feel free to [reach out to me on X](https://x.com/Niraj_pandkar). And don't forget to check out the newsletter - https://nirajpandkar.substack.com!
